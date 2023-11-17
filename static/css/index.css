@@ -1,0 +1,50 @@
+body{
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+}
+
+.home_nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-color: blue;
+    
+}
+.home_nav a{
+    color: white;
+}
+.home_content{
+    /*width: 50%; */
+    margin: auto;
+}
+
+.login_card{
+    margin: auto;
+    /*width: 50%; */
+    color: white;
+    
+}
+@media screen and (max-width:600px) {
+    .home_content{
+        display: none;
+    
+    }
+    .login_card{
+        margin-top: 10px;
+        padding-top: 6px;
+        width: 100%;
+    }
+}
+
+footer .row{
+    color: white;
+}
+
+footer a{
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+}
+

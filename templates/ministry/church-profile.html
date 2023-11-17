@@ -1,0 +1,40 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block title %} Church Profile {% endblock %}
+
+
+{% block content %}
+<div class=" container-fluid  " >
+   <div class="dashboard-index" >
+            {% include 'dashboard/__nav.html' %}
+            <div class="main-content  " >
+                <div class="card mb-5">
+                    <h5 class="card-header">Ministries Table <a href="#" class="btn btn-sm btn-success shadow float-right text-light">Add Ministry <i class="fa fa-plus ml-2"></i></a>
+                    </h5>
+                    <div class="card-body mb-5">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered first">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Branch Location</th>
+                                        <th>Region</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for church in churches %}
+                                    <tr>
+                                        <td>{{ church.name }}</td>
+                                        <td>{{ church.location }}</td>
+                                        <td>{{ church.Region }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+         </div>  
+   </div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends '__partials/base.html' %}
+{% load static %}
+
+<h1> {% block title %}  Sign Up  {% endblock %} </h1>
+{% block content %}
+<div class="bg-success border border-light border-2 rounded login_card">
+    <h2 class="fs-2 text-white text-center" >Sign Up </h2>
+    <form method="POST" action="." class="p-4" >
+        {% csrf_token %}
+        
+      {{ form.as_p }}
+    
+        <button type="submit" class="btn btn-primary">Sign in</button>
+        <p>Already have an account?  <a href="{% url 'auth_app:index' %}">Login </a> </p>
+    </form>
+</div>
+{% endblock %}
+
+<script type="text/javascript" src="{% static 'js/app.js' %}" ></script>

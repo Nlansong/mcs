@@ -1,0 +1,105 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block title %} Dashboard {% endblock %}
+
+
+{% block content %}
+<div class=" container-fluid  " >
+   <div class="dashboard-index" >
+            {% include 'dashboard/__nav.html' %}
+            <div class="main-content  " >
+                <div class="container text-center mb-3">
+                    <div class="row">
+                      <div class="col">
+                        <!--Card fo displaying church information-->
+                        {% for ministry in ministries %}
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">{{ ministry.name }}</h5>
+                              <p class="card-text"> Located at  {{ministry.location}} </p>
+                              <a href="{% url 'ministry:church_profile' %}" class="btn btn-primary">Check Ministry Profile</a>
+                            </div>
+                          </div>
+                          {% endfor %}
+                      </div>
+                      <div class="col">
+                        <!--display for the various Departments in the church-->
+                        
+                        <div class="card" style="width: 18rem;">
+                           
+                            <div class="card-body">
+                              <h5 class="card-title">Departments in Christ Embassy Tamale</h5>
+                              <p class="card-text"> Check the various departments  </p>
+                              <a href="#" class="btn btn-primary"> Departments list </a>
+                            </div>
+                          </div>
+                          
+                      </div>
+                      <div class="col">
+                        <!--List of cells in the ministry-->
+                        <div class="card" style="width: 18rem;">
+                           
+                            <div class="card-body">
+                              <h5 class="card-title">Cells in Christ Embassy Tamale</h5>
+                              <p class="card-text"> Check the various cells  </p>
+                              <a href="#" class="btn btn-primary"> Cells list </a>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container text-center bg-primary text-white p-3">
+                    <div class="row">
+                      <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Payments</h5>
+                              <p class="card-text"> Check out the lates payments received </p>
+                              <a href="#" class="btn btn-success">Payments</a>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title"> Members Page </h5>
+                              <p class="card-text"> Get the list of all Members on the church </p>
+                              <a href="#" class="btn btn-success">Go here</a>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Announcements</h5>
+                              <p class="card-text"> Latest events and Programs coming up </p>
+                              <a href="#" class="btn btn-success">Read More</a>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container bg-dark text-white text-center mt-2 ">
+                    <div class="row">
+                      <ul>
+                        <li>
+                            <a class="text-white" href="#">Privacy Policy</a>
+                        </li>
+                        <li class="p-2">
+                            <a class="text-white" href="#">Terms of use</a>
+                        </li>
+                        <li class="p-2">
+                            <a class="text-white " href="#">User Guide</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+            </div>    
+   </div>
+</div>
+
+{% endblock %}
+
+
+
+
