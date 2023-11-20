@@ -1,0 +1,40 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block title %} Departments {% endblock %}
+
+
+{% block content %}
+<div class=" container-fluid  " >
+   <div class="dashboard-index" >
+    <div class="dashboard-sidebar" >
+      {% include 'dashboard/__nav.html' %}
+    </div>
+            <div class="main-content  " > 
+                <h2>Departments</h2>
+                
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col"> Name of department </th>
+                        <th scope="col"> Description </th>
+                        <th scope="col">   Read More </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {%  for department in departments%}
+                      <tr>
+                        <th scope="row"> {{department.id}} </th>
+                        <td> {{department.name}} </td>
+                        <td>  {{department.description}} </td>
+                        <td> <a href="{% url 'ministry:dep_detail' department.id %}"> Read More </a>  </td>
+                      </tr>
+                      {% endfor %}
+                     
+                    </tbody>
+                  </table>
+               
+            </div>
+   </div>
+</div>
+{% endblock %}

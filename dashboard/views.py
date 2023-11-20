@@ -28,3 +28,5 @@ def index(request):
     else:
         messages.success(request, "You must be logged in to view this page")
         return redirect('dasboard:index')
+    
+    

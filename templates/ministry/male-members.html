@@ -1,0 +1,44 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block title %} Male Members of {{ministry.name}} {% endblock %}
+
+
+{% block content %}
+<div class=" container-fluid  " >
+   <div class="dashboard-index" >
+      <div class="dashboard-sidebar" >
+        {% include 'dashboard/__nav.html' %}
+      </div>
+      <div class="main-content  " > 
+
+        <h1> List of all Male members of {{ministry.name}} </h1>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col"> Title of Member  </th>
+                <th scope="col"> Name of Member  </th>
+                <th scope="col"> Location of Member  </th>
+                <th scope="col"> Phone Number of Member  </th>
+                <th scope="col"> Profile of Member  </th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for member in members %}
+              <tr>
+                <th scope="row">{{member.id}} </th>
+                <td> {{member.title}} </td>
+                <td> {{member.name}} </td>
+                <td> {{member.location}} </td>
+                <td> {{member.phone_number}} </td>
+                <td> <a href="{% url 'ministry:mem_detail' member.id %}">Check Profile</a> </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+         
+    </div>
+   </div>
+</div>
+            
+{% endblock %}

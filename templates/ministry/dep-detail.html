@@ -1,0 +1,44 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block title %} {{department.name}} {% endblock %}
+
+
+{% block content %}
+<div class=" container-fluid  " >
+   <div class="dashboard-index" >
+    <div class="dashboard-sidebar" >
+      {% include 'dashboard/__nav.html' %}
+    </div>
+            <div class="main-content  " > 
+                <h2>  Welcome to {{department.name}} department of {{ministry.name}} </h2>
+                <p> The main purpose of {{department.name}}  department is to {{department.description}}  </p>
+                 <h5> Members of {{department.name}} </h5>
+                
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col"> Title Member </th>
+                        <th scope="col"> Name of Member </th>
+                        <th scope="col">   Phone Number </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        
+                        {%  for member in members%}
+                      <tr>
+                        <th scope="row"> {{member.id}} </th>
+                        <td> {{member.title}} </td>
+                        <td>  {{member.name}} </td>
+                        <td>  {{member.phone_number}} </td>
+                      </tr>
+                      {% endfor %}
+                      
+                     
+                    </tbody>
+                  </table>
+               
+            </div>
+   </div>
+</div>
+{% endblock %}

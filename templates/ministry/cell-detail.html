@@ -1,0 +1,46 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block title %} {{cell.name}} {% endblock %}
+
+
+{% block content %}
+<div class=" container-fluid  " >
+   <div class="dashboard-index" >
+    <div class="dashboard-sidebar" >
+      {% include 'dashboard/__nav.html' %}
+    </div>
+            <div class="main-content  " > 
+                <h2>  Welcome to {{cell.name}} cell of {{ministry.name}} </h2>
+                <p> The location of the cell is {{cell.location}} and the leader is <strong>{{cell.name_of_leader}} </strong> </p>
+                 <h5> Members of {{cell.name}} Cell </h5>
+                
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col"> Title Member </th>
+                        <th scope="col"> Name of Member </th>
+                        <th scope="col">   Phone Number </th>
+                        <th scope="col">  Member Profile </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        
+                        {%  for member in members%}
+                      <tr>
+                        <th scope="row"> {{member.id}} </th>
+                        <td> {{member.title}} </td>
+                        <td>  {{member.name}} </td>
+                        <td>  {{member.phone_number}} </td>
+                        <td>  <a href="{% url 'ministry:mem_detail' member.id %}"> check Profile </a> </td>
+                      </tr>
+                      {% endfor %}
+                      
+                     
+                    </tbody>
+                  </table>
+               
+            </div>
+   </div>
+</div>
+{% endblock %}

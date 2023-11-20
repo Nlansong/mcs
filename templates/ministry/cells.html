@@ -1,0 +1,42 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block title %} Cells {% endblock %}
+
+
+{% block content %}
+<div class=" container-fluid  " >
+   <div class="dashboard-index" >
+    <div class="dashboard-sidebar" >
+      {% include 'dashboard/__nav.html' %}
+    </div>
+            <div class="main-content  " > 
+                <h2> List of Cells</h2>
+                
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col"> Name of Cell </th>
+                        <th scope="col"> Location </th>
+                        <th scope="col"> Name of Cell Leader </th>
+                        <th scope="col">   Read More </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {%  for cell in cells %}
+                      <tr>
+                        <th scope="row"> {{cell.id}} </th>
+                        <td> {{cell.name}} </td>
+                        <td>  {{cell.location}} </td>
+                        <td>  {{cell.name_of_leader}} </td>
+                        <td> <a href="{% url 'ministry:cell_detail' cell.id %}"> Read More </a>  </td>
+                      </tr>
+                      {% endfor %}
+                     
+                    </tbody>
+                  </table>
+               
+            </div>
+   </div>
+</div>
+{% endblock %}

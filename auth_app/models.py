@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db.models.signals import post_save
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+
 
 #Create your models here.
 class UserProfile(models.Model):
@@ -16,7 +16,7 @@ class UserProfile(models.Model):
     
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=50,choices=options)
-    username = models.CharField(max_length=200, default="")
+    username = models.CharField(max_length=200)
     profile_picture = models.ImageField(default="")
     phone_number = models.PositiveIntegerField(null=True)
     birthday =models.DateTimeField(null=True, blank=True)

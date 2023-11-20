@@ -1,0 +1,41 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block title %} Profile of {{member.name}} {% endblock %}
+
+
+{% block content %}
+<div class=" container-fluid  " >
+   <div class="dashboard-index" >
+      <div class="dashboard-sidebar" >
+        {% include 'dashboard/__nav.html' %}
+      </div>
+      <div class="main-content  " > 
+        <div class="row text-center" > 
+          <h2> Welcome {{member.title}}. {{member.name}}  </h2>
+          {% if member.picture %}
+          <img src="{{member.picture.url}}" style="width: 18rem;" >
+          {% endif %}
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Loctaion  </th>
+                <th scope="col"> Date of Birth </th>
+                <th scope="col"> Gender </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr> 
+                <td> {{member.location}} </td>
+                <td> {{member.birthday}} </td>
+                <td> {{member.gender}} </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+         
+    </div>
+   </div>
+</div>
+            
+{% endblock %}
