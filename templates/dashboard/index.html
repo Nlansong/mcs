@@ -18,7 +18,8 @@
                     <div class="card-body">
                       <h5 class="card-title">{{ ministry.name }}</h5>
                       <p class="card-text"> Located at  {{ministry.location}} </p>
-                      <a href="{% url 'ministry:church_profile'  %}" class="btn btn-primary">Check Ministry Profile</a>
+                      <p>  <a href="{% url 'ministry:church_profile'  %}" class=" link-text ">Check Ministry Profile</a> </p>
+                      <p class="card-footer small-font" >  {{ministry.location}} </p>
                     </div>
                   </div>
                   {% endfor %}
@@ -29,9 +30,10 @@
                 <div class="card">
                    
                     <div class="card-body">
-                      <h5 class="card-title">Departments in Christ Embassy Tamale</h5>
+                      <h5 class="card-title">Departments in {{ ministry.name }}</h5>
                       <p class="card-text"> Check the various departments  </p>
-                      <a href="{% url 'ministry:departments' %}" class="btn btn-primary"> Departments list </a>
+                      <p><a href="{% url 'ministry:departments' %}" class="link-text"> Departments list </a></p>
+                      <p class="card-footer small-font" > Total Departments: {{total_departments}}  </p>
                     </div>
                   </div>
                   
@@ -41,22 +43,23 @@
                 <div class="card" >
                    
                     <div class="card-body">
-                      <h5 class="card-title">Cells in Christ Embassy Tamale</h5>
+                      <h5 class="card-title">Cells in {{ministry.name}}  </h5>
                       <p class="card-text"> Check the various cells  </p>
-                      <a href="{%  url 'ministry:cells' %}" class="btn btn-primary"> Cells list </a>
+                      <p><a href="{%  url 'ministry:cells' %}" class="link-text"> Cells list </a> </p>
+                      <p class="card-footer small-font" > Total Cells: {{total_cells}}  </p>
                     </div>
                   </div>
               </div>
             </div>
           </div>
-          <div class="container text-center bg-primary text-white p-3">
+          <div class="container text-center  text-white p-3">
             <div class="row">
               <div class="col">
                 <div class="card" >
                     <div class="card-body">
                       <h5 class="card-title">Payments</h5>
                       <p class="card-text"> Check out the lates payments received </p>
-                      <a href="#" class="btn btn-success">Payments</a>
+                      <a href="#" class="link-text">Payments</a>
                     </div>
                   </div>
               </div>
@@ -64,8 +67,8 @@
                 <div class="card" >
                     <div class="card-body">
                       <h5 class="card-title"> Members Page </h5>
-                      <p class="card-text"> Get the list of all Members on the church </p>
-                      <a href="#" class="btn btn-success">Go here</a>
+                      <p class="card-text"> Get the list of all Members in the church </p>
+                      <a href="{% url 'dashboard:members' %}" class="link-text">Go here</a>
                     </div>
                   </div>
               </div>
@@ -74,27 +77,13 @@
                     <div class="card-body">
                       <h5 class="card-title">Announcements</h5>
                       <p class="card-text"> Latest events and Programs coming up </p>
-                      <a href="#" class="btn btn-success">Read More</a>
+                      <a href="#" class="link-text">Read More</a>
                     </div>
                   </div>
               </div>
             </div>
           </div>
-          <div class="container bg-dark text-white text-center mt-2 ">
-            <div class="row">
-              <ul>
-                <li>
-                    <a class="text-white" href="#">Privacy Policy</a>
-                </li>
-                <li class="p-2">
-                    <a class="text-white" href="#">Terms of use</a>
-                </li>
-                <li class="p-2">
-                    <a class="text-white " href="#">User Guide</a>
-                </li>
-              </ul>
-            </div>
-          </div> 
+          {% include 'dashboard/__footer.html' %}
     </div>
       
    </div>

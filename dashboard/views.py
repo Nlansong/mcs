@@ -1,28 +1,32 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from ministry.models import Department, Ministry
+from ministry.models import Department, Ministry, Cell, Member
 from django.contrib.auth.models import User
 from django.contrib import messages
 
 
 # Create your views here.
-@login_required
+
 def index(request):
     if request.user.is_authenticated:
-        profile = User.objects.get(pk=request.user.id)
+        
         
         try:
             ministries = Ministry.objects.filter(created_by=request.user)
-            #ministries = Ministry.objects.filter()
-            departments = Department.objects.filter(created_by=request.user)
+            ministry = Ministry.objects.get(created_by=request.user)
+            departments = Department.objects.filter(ministry=ministry)
+            total_departments = Department.objects.filter(ministry=ministry).count()
+            total_cells = Cell.objects.filter(ministry=ministry).count()
             
         except:
             departments =None
             ministries = None
         context = {
-            'profile':profile,
             'departments':departments,
             'ministries':ministries,
+            'total_departments':total_departments,
+            'ministry':ministry,
+            'total_cells':total_cells,
         }
         return render(request, 'dashboard/index.html', context)
     else:
@@ -30,3 +34,16 @@ def index(request):
         return redirect('dasboard:index')
     
     
+
+# list of members of the ministry
+@login_required
+def list_members(request):
+    ministry = Ministry.objects.get(created_by=request.user)
+    members = Member.objects.filter(ministry=ministry)
+    total_members = Member.objects.filter(ministry=ministry).count()
+    context = {
+        'ministry':ministry,
+        'members':members,
+        'total_members': total_members,
+    }
+    return render(request, 'dashboard/members.html', context)

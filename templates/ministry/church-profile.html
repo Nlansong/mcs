@@ -20,7 +20,7 @@
                             <div class="card-body">
                               <p class="card-text">Access All members of the church.</p>
                               <p> <a href="{% url 'ministry:members' %}" class="btn btn-primary ">Go here</a> </p>
-                              <p class="card-footer " > Total Members: <strong>{{all_members}}</strong> <br>
+                              <p class="card-footer small-font " > Total Members: <strong>{{all_members}}</strong> 
                                  Male: <strong>{{total_male}} </strong>
                                  Female: <strong>{{total_female}}</strong>
                                  </p>
@@ -34,9 +34,9 @@
                             <div class="card-body">
                               <p class="card-text">Access All active members of the church.</p>
                                <p> <a href="{% url 'ministry:active_members' %}" class="btn btn-primary">Go here</a> </p>
-                               <p class="card-footer " > Total Members: <strong>{{all_members}}</strong> <br>
-                                Male: <strong>{{total_male}} </strong>
-                                Female: <strong>{{total_female}}</strong>
+                               <p class="card-footer small-font " > Total Members: <strong>{{total_active}}</strong> 
+                                Male: <strong>{{total_active_male}} </strong>
+                                Female: <strong>{{total_active_female}}</strong>
                                 </p>
                             </div>
                           </div>
@@ -46,7 +46,11 @@
                             <h5 class="card-header"> Working Church Members </h5>
                             <div class="card-body">
                               <p class="card-text">Access All working members of the church.</p>
-                              <a href="{% url 'ministry:working_members' %}" class="btn btn-primary">Go here</a>
+                               <p> <a href="{% url 'ministry:working_members' %}" class="btn btn-primary">Go here</a> </p>
+                               <p class="card-footer small-font" > Total Members: <strong>{{total_working_members}}</strong>
+                                Male: <strong>{{total_working_male}} </strong>
+                                Female: <strong>{{total_working_female}}</strong>
+                                </p>
                             </div>
                           </div>
                       </div>
@@ -59,7 +63,11 @@
                             <h5 class="card-header">Schooling  Members  </h5>
                             <div class="card-body">
                               <p class="card-text">Access Student members of the church.</p>
-                              <a href="{% url 'ministry:student_members' %}" class="btn btn-primary">Go here</a>
+                              <p><a href="{% url 'ministry:student_members' %}" class="btn btn-primary">Go here</a> </p>
+                              <p class="card-footer small-font" > Total Members: <strong>{{total_students}}</strong>
+                                Male: <strong>{{total_male_students}} </strong>
+                                Female: <strong>{{total_female_students}}</strong>
+                                </p>
                             </div>
                           </div>
                       </div>
@@ -68,7 +76,11 @@
                             <h5 class="card-header"> New Convert</h5>
                             <div class="card-body">
                               <p class="card-text">Access All New members of the church.</p>
-                              <a href="{% url 'ministry:new_converts' %}" class="btn btn-primary">Go here</a>
+                              <p><a href="{% url 'ministry:new_converts' %}" class="btn btn-primary">Go here</a></p>
+                              <p class="card-footer small-font" > Total Members: <strong>{{total_converts}}</strong>
+                                Male: <strong>{{total_male_converts}} </strong>
+                                Female: <strong>{{total_female_converts}}</strong>
+                                </p>
                             </div>
                           </div>
                       </div>
@@ -85,6 +97,7 @@
                     </div>
                   
               </div>
+              {% include 'dashboard/__footer.html' %}
          </div>  
    </div>
 {% endblock %}

@@ -20,7 +20,9 @@
     width: 75%;
     
 }
-
+.small-font{
+    font-size: 0.7rem;
+}
 
 .dashboard-sidebar{
     width: 25%;
@@ -28,7 +30,7 @@
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    background-color: green;
+    background-color: rgb(17, 32, 198);
 }
 
 .side-nav{
@@ -58,8 +60,63 @@
     color: red;
     text-decoration: underline;
 }
+
+/*   styles for dashboard footer */
+.dashboard-footer{
+    background-color: #0d6efd;
+    margin-top: 6px;
+}
+.dashboard-footer ul{
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.dashboard-footer ul li{
+    list-style: none;
+    padding: 2px;
+}
+.dashboard-footer ul li a{
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+}
 /* styles for adding new members */
 .soul{
     margin: 4px;
     border-top: 1px solid white;
 }
+
+.link-text{
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+/*  styles for members page */
+.member_list{
+    margin-bottom: 10px ;
+    border-bottom: 1px solid black ;
+    
+}
+.right-col{
+    border-left: 1px solid blue;
+    text-align: left;
+}
+
+.members-side{
+    display: flex;
+    align-items: start;
+}
+
+.sidebar-nav ul{
+    text-align: start;
+}
+
+.member-link{
+    text-decoration: none;
+    color: black ;
+}
+
+
+

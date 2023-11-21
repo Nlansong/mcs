@@ -1,0 +1,45 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block title %} List of Members {% endblock %}
+
+{% block content %}
+{% include 'dashboard/__membersnav.html' %}
+<div class="container text-center mt-5">
+    <div class="row" >
+        <div class="col-9">
+            {% for member in members %}
+         <a href="{% url 'ministry:mem_detail' member.id %}" class="member-link">
+            <div class="row member_list">
+            
+                <div class="col-1">
+                    {% if member.picture %}
+                    <img src="{{member.picture.url}}" style="width: 50px; height: 50px; border-radius: 50%;" >
+                    {% else %}
+                    <img src="{% static 'img/profile.png' %}" style="width: 50px; height: 50px; border-radius: 50%;">
+                    {% endif %}
+                </div>
+                <div class="col-4   right-col">
+                    <h4> {{member.name}} </h4>
+                    <p class="text-body-secondary" > DOB:  {{member.birthday}} <br>
+                     Gender:  {{member.gender}} 
+                        Phone:   {{member.phone_number}} </p>
+                </div>
+            
+            </div>
+         </a>
+         {% endfor %}
+        </div>
+
+
+        <div class="col-3 members-side" >
+            {% include '__partials/sidebar.html' %}
+        </div>
+    </div>
+    
+    
+  </div>
+
+
+    {% include 'dashboard/__footer.html' %}
+
+{% endblock %}

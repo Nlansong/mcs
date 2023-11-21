@@ -11,13 +11,43 @@ def church_profile(request):
     all_members = Member.objects.filter(ministry=ministry).count()
     total_male = Member.objects.filter(ministry=ministry, gender='Male').count()
     total_female = Member.objects.filter(ministry=ministry, gender='Female').count()
+    
+    #active members of the ministry
+    total_active = Member.objects.filter(ministry=ministry, active=True).count()
+    total_active_male = Member.objects.filter(ministry=ministry, active=True, gender="Male").count()
+    total_active_female = Member.objects.filter(ministry=ministry, active=True, gender="Female").count()
+    
+    #working Members of the ministry
     total_working_members = Member.objects.filter(ministry=ministry, working=True).count()
+    total_working_male = Member.objects.filter(ministry=ministry, gender="Male").count()
+    total_working_female = Member.objects.filter(ministry=ministry, gender="Female").count()
+    
+    #Student Members of the ministry
+    total_students =Member.objects.filter(ministry=ministry, schooling=True).count()
+    total_male_students = Member.objects.filter(ministry=ministry, schooling=True, gender='Male').count()
+    total_female_students = Member.objects.filter(ministry=ministry, schooling=True, gender='Female').count()
+    
+    #number of new Converts in the Ministry
+    total_converts = Member.objects.filter(ministry=ministry, new_convert=True).count()
+    total_male_converts = Member.objects.filter(ministry=ministry, new_convert=True, gender='Male').count()
+    total_female_converts = Member.objects.filter(ministry=ministry, new_convert=True, gender='Female').count()
     context = {
         'ministry':ministry,
         'all_members':all_members,
         'total_male':total_male,
         'total_female':total_female,
         'total_working_members':total_working_members,
+        'total_working_male':total_working_male,
+        'total_working_female':total_working_female,
+        'total_active':total_active,
+        'total_active_male':total_active_male,
+        'total_active_female':total_active_female,
+        'total_students':total_students,
+        'total_male_students':total_male_students,
+        'total_female_students':total_female_students,
+        'total_converts':total_converts,
+        'total_male_converts':total_male_converts,
+        'total_female_converts':total_female_converts,
         
     }
     
